@@ -1,0 +1,26 @@
+<div *ngIf="collapse">
+<div>
+  <label for="firstN">First number</label>
+  <input name="firstN" type="number" [(ngModel)]="n1"><br>
+  <label for="secondN">Second number</label>
+  <input name="secondN" type="number" [(ngModel)]="n2"><br>
+  <button name="addButton" (click)="onAdd()">Add numbers</button>
+</div>
+<div>
+  <span [ngStyle]="colorRed(sum)">{{sum}}</span>
+</div>
+<br>
+<div>
+  <input type="text" name="textInput" [disabled]="checkBox" [(ngModel)]="text">
+  <input type="checkbox" (change)="onCheck()"><br>
+  <button name="textToArray" (click)="onAddText()" [disabled]="arrayLengthCheck()">Add to array</button><br>
+  <span *ngIf="noMoreAdd()">Can't add more</span>
+</div>
+<div *ngFor="let e of textArray; let i=index">
+  <p [ngStyle]="colorPurple(i)">{{e}}</p>
+</div><br><br>
+</div>
+<button (click)="onCollapse()">Collapse First Component</button>
+<app-second [array]="textArray" (secondCompText)="textFromSecondComponent($event)"></app-second><br>
+<button (click)="showPokemons()">Pokemons</button><br>
+<button (click)="showDogs()">Dogs</button>

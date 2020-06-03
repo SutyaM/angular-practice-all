@@ -1,0 +1,9 @@
+<div *ngIf="collapse">
+<div>
+  {{array[array.length-1]}}
+</div><br>
+<label for="secondInput">Second component input: </label>
+<input name="secondInput" type="text" [(ngModel)]="text"><br>
+<button (click)="onSecondAdd()">Add to frist component Array</button>
+</div>
+<button (click)="onCollapse()">Collapse Second Component</button>
